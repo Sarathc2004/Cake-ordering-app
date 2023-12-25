@@ -2,11 +2,10 @@ import 'dart:math';
 
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/signupscreen/loginscreen.dart';
 import 'package:flutter/material.dart';
 
-class Signupscreen extends StatelessWidget {
-  const Signupscreen({super.key});
+class Loginscreen extends StatelessWidget {
+  const Loginscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class Signupscreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Hey,get on board",
+                        "Welcome back,",
                         style: TextStyle(
                           color: colorconstant.primarywhite,
                           fontSize: 30,
@@ -36,7 +35,7 @@ class Signupscreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        " Signup to continue",
+                        " Signin to continue",
                         style: TextStyle(
                           color: colorconstant.primarywhite,
                         ),
@@ -59,38 +58,6 @@ class Signupscreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "  Username",
-                        style: TextStyle(
-                            color: colorconstant.primaryblack,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 3,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes the shadow position
-                            ),
-                          ],
-                        ),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Enter your username',
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
                       SizedBox(height: 15),
                       Text(
                         "  Email id",
@@ -150,7 +117,7 @@ class Signupscreen extends StatelessWidget {
                         ),
                         child: TextField(
                           decoration: InputDecoration(
-                            hintText: 'Enter your password',
+                            hintText: 'Enter your email',
                             border: InputBorder.none,
                           ),
                         ),
@@ -166,14 +133,8 @@ class Signupscreen extends StatelessWidget {
                                   backgroundColor: MaterialStatePropertyAll(
                                       colorconstant.primaryrose),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Loginscreen(),
-                                      ));
-                                },
-                                child: Text('Sign up'),
+                                onPressed: () {},
+                                child: Text('Sign in'),
                               ),
                               SizedBox(
                                 height: 20,
@@ -201,7 +162,7 @@ class Signupscreen extends StatelessWidget {
                                       SizedBox(
                                         width: 20,
                                       ),
-                                      Text("SIGN UP WITH GOOGLE")
+                                      Text("SIGN IN WITH GOOGLE")
                                     ]),
                               )
                             ],

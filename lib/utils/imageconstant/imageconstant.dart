@@ -1,3 +1,4 @@
 class imageconstant {
-  static String loginlogo = "assets/images/cakebackground.webp";
+  static String splashlogo = "assets/images/cakeapplogo.jpeg";
+  static String googlelogo = "assets/images/google-logo.webp";
 }
