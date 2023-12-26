@@ -5,53 +5,60 @@ import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
 import 'package:final_main_project/view/signupscreen/loginscreen.dart';
 import 'package:flutter/material.dart';
 
-class Signupscreen extends StatelessWidget {
+class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});
 
+  @override
+  State<Signupscreen> createState() => _SignupscreenState();
+}
+
+class _SignupscreenState extends State<Signupscreen> {
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorconstant.primaryrose,
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.all(20),
-                height: 150,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Hey,get on board",
-                        style: TextStyle(
-                          color: colorconstant.primarywhite,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
+                  height: 150,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hey,get on board",
+                          style: TextStyle(
+                            color: colorconstant.primarywhite,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        " Signup to continue",
-                        style: TextStyle(
-                          color: colorconstant.primarywhite,
+                        SizedBox(
+                          height: 10,
                         ),
-                      )
-                    ],
+                        Text(
+                          " Signup to continue",
+                          style: TextStyle(
+                            color: colorconstant.primarywhite,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ClipRRect(
+              ],
+            ),
+            ClipRRect(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
               child: Container(
+                height: 660,
                 color: colorconstant.primarywhite,
                 child: Padding(
                   padding: const EdgeInsets.all(9.0),
@@ -59,6 +66,9 @@ class Signupscreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 30,
+                      ),
                       Text(
                         "  Username",
                         style: TextStyle(
@@ -87,6 +97,7 @@ class Signupscreen extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Enter your username',
+                            suffixIcon: Icon(Icons.person),
                             border: InputBorder.none,
                           ),
                         ),
@@ -118,6 +129,7 @@ class Signupscreen extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Enter your email',
+                            suffixIcon: Icon(Icons.email),
                             border: InputBorder.none,
                           ),
                         ),
@@ -151,6 +163,7 @@ class Signupscreen extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Enter your password',
+                            suffixIcon: Icon(Icons.lock),
                             border: InputBorder.none,
                           ),
                         ),
@@ -178,7 +191,21 @@ class Signupscreen extends StatelessWidget {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text("-Or you can also-"),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: 150,
+                                    height: 1,
+                                    color: colorconstant.primaryblack,
+                                  ),
+                                  Text("  Or  "),
+                                  Container(
+                                    height: 1,
+                                    width: 150,
+                                    color: colorconstant.primaryblack,
+                                  )
+                                ],
+                              ),
                               SizedBox(
                                 height: 20,
                               ),
@@ -212,9 +239,9 @@ class Signupscreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

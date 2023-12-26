@@ -11,46 +11,47 @@ class Loginscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorconstant.primaryrose,
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.all(20),
-                height: 150,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Welcome back,",
-                        style: TextStyle(
-                          color: colorconstant.primarywhite,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
+                  height: 150,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Welcome back,",
+                          style: TextStyle(
+                            color: colorconstant.primarywhite,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        " Signin to continue",
-                        style: TextStyle(
-                          color: colorconstant.primarywhite,
+                        SizedBox(
+                          height: 10,
                         ),
-                      )
-                    ],
+                        Text(
+                          " Signin to continue",
+                          style: TextStyle(
+                            color: colorconstant.primarywhite,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ClipRRect(
+              ],
+            ),
+            ClipRRect(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
               child: Container(
+                height: 660,
                 color: colorconstant.primarywhite,
                 child: Padding(
                   padding: const EdgeInsets.all(9.0),
@@ -58,6 +59,9 @@ class Loginscreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 30,
+                      ),
                       SizedBox(height: 15),
                       Text(
                         "  Email id",
@@ -85,6 +89,7 @@ class Loginscreen extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Enter your email',
+                            suffixIcon: Icon(Icons.email),
                             border: InputBorder.none,
                           ),
                         ),
@@ -118,6 +123,7 @@ class Loginscreen extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Enter your email',
+                            suffixIcon: Icon(Icons.lock),
                             border: InputBorder.none,
                           ),
                         ),
@@ -139,7 +145,21 @@ class Loginscreen extends StatelessWidget {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text("-Or you can also-"),
+                              Row(
+                                children: [
+                                  Container(
+                                    height: 1,
+                                    width: 150,
+                                    color: colorconstant.primaryblack,
+                                  ),
+                                  Text("  Or  "),
+                                  Container(
+                                    height: 1,
+                                    width: 150,
+                                    color: colorconstant.primaryblack,
+                                  ),
+                                ],
+                              ),
                               SizedBox(
                                 height: 20,
                               ),
@@ -173,9 +193,9 @@ class Loginscreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
