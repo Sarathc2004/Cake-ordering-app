@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
+import 'package:final_main_project/view/navigationscreen/navigationscreen.dart';
 import 'package:flutter/material.dart';
 
 class Loginscreen extends StatelessWidget {
@@ -139,7 +140,13 @@ class Loginscreen extends StatelessWidget {
                                   backgroundColor: MaterialStatePropertyAll(
                                       colorconstant.primaryrose),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Bottomnavscreen(),
+                                      ));
+                                },
                                 child: Text('Sign in'),
                               ),
                               SizedBox(

@@ -56,7 +56,7 @@ class Splashscreen extends StatelessWidget {
                           ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: MaterialStatePropertyAll(
-                                Colors.blue,
+                                colorconstant.primaryrose,
                               ),
                             ),
                             onPressed: () {
