@@ -1,4 +1,5 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
+import 'package:final_main_project/view/homescreen/homescreen.dart';
 import 'package:flutter/material.dart';
 
 class Bottomnavscreen extends StatefulWidget {
@@ -9,17 +10,17 @@ class Bottomnavscreen extends StatefulWidget {
 }
 
 class _BottomnavscreenState extends State<Bottomnavscreen> {
+  List<Widget> widgetlist = [Homescreen()];
   @override
   Widget build(BuildContext context) {
     int selectedindex = 0;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(backgroundColor: colorconstant.primaryrose),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: colorconstant.primaryrose,
-            selectedItemColor: colorconstant.primarywhite,
-            unselectedItemColor: colorconstant.primaryblack,
+            selectedItemColor: colorconstant.primaryblack,
+            unselectedItemColor: colorconstant.primarywhite,
             items: [
               BottomNavigationBarItem(
                   icon: Icon(Icons.home),
@@ -44,6 +45,7 @@ class _BottomnavscreenState extends State<Bottomnavscreen> {
                 selectedindex = value;
               });
             }),
+        body: widgetlist[selectedindex],
       ),
     );
   }

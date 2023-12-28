@@ -141,11 +141,12 @@ class Loginscreen extends StatelessWidget {
                                       colorconstant.primaryrose),
                                 ),
                                 onPressed: () {
-                                  Navigator.push(
+                                  Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => Bottomnavscreen(),
-                                      ));
+                                      ),
+                                      (route) => false);
                                 },
                                 child: Text('Sign in'),
                               ),
