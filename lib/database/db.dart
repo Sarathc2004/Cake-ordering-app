@@ -22,4 +22,15 @@ class Database {
     // "assets/images/splashcake2.webp",
     // "assets/images/splashcake3.webp"
   ];
+  static List imagelist = [
+    "assets/images/splashcake1.webp",
+    "assets/images/splashcake2.webp",
+    "assets/images/splashcake3.webp",
+    "assets/images/splashcake1.webp",
+    "assets/images/splashcake2.webp",
+    "assets/images/splashcake3.webp",
+    "assets/images/splashcake1.webp",
+    "assets/images/splashcake2.webp",
+    "assets/images/splashcake3.webp"
+  ];
 }

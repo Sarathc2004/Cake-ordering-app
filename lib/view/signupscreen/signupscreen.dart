@@ -58,7 +58,7 @@ class _SignupscreenState extends State<Signupscreen> {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
               child: Container(
-                height: 660,
+                height: 700,
                 color: colorconstant.primarywhite,
                 child: Padding(
                   padding: const EdgeInsets.all(9.0),

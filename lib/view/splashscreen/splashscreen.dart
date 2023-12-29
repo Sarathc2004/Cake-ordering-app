@@ -1,6 +1,5 @@
 import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
-import 'package:final_main_project/view/signupscreen/signupscreen.dart';
 import 'package:final_main_project/view/splashscreen/logoscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -65,8 +64,6 @@ class Splashscreen extends StatelessWidget {
                                   MaterialPageRoute(
                                     builder: (context) => Logoscreen(),
                                   ));
-                              // Handle get started button click
-                              // You can navigate to the next screen or perform any action here.
                             },
                             child: Text('Get Started'),
                           ),
@@ -81,7 +78,7 @@ class Splashscreen extends StatelessWidget {
               controller: controller,
               count: 3,
               effect: ScrollingDotsEffect(
-                  activeDotColor: colorconstant.primaryblack),
+                  activeDotColor: colorconstant.primaryrose),
             ),
             SizedBox(height: 20.0),
           ],

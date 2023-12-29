@@ -13,7 +13,7 @@ class Widgetcard extends StatelessWidget {
       child: GridView.builder(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: 3,
+        itemCount: Database.imagelist.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 5,
@@ -47,7 +47,7 @@ class Widgetcard extends StatelessWidget {
                     height: 150,
                     width: 200,
                     child: Image.asset(
-                      Database.splashlist[index]["image"],
+                      Database.imagelist[index],
                       fit: BoxFit.cover,
                     ),
                   ),
