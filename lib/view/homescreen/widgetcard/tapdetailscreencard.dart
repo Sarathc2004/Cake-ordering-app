@@ -18,7 +18,7 @@ class tapdetailscreencard extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
             padding: EdgeInsets.all(10),
-            height: MediaQuery.of(context).size.height / 1.2,
+            height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -78,9 +78,22 @@ class tapdetailscreencard extends StatelessWidget {
                                 height: 200,
                                 width: 300,
                                 child: Image.asset(
-                                  imageconstant.splashlogo,
+                                  "assets/images/splashcake1.webp",
                                   fit: BoxFit.cover,
                                 ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.currency_rupee),
+                              Text(
+                                "450",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                             ],
                           ),
@@ -100,12 +113,6 @@ class tapdetailscreencard extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            children: [
-                              Icon(Icons.currency_rupee),
-                              Text("450"),
-                            ],
-                          )
                         ],
                       ),
                     ),
@@ -136,7 +143,7 @@ class tapdetailscreencard extends StatelessWidget {
                                     backgroundColor: MaterialStatePropertyAll(
                                         colorconstant.primaryrose)),
                                 onPressed: () {},
-                                child: Text("Add to cart")),
+                                child: Text("Message now")),
                           )
                         ],
                       ),

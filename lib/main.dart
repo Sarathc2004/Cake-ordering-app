@@ -1,3 +1,4 @@
+import 'package:final_main_project/controller/homescreencontroller/homescreencontroller.dart';
 import 'package:final_main_project/controller/usernavbarcontroller.dart';
 import 'package:final_main_project/view/homescreen/homescreen.dart';
 import 'package:final_main_project/view/splashscreen/splashscreen.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => usernavbarcontroller(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => homescreenController(),
         )
       ],
       child: MaterialApp(

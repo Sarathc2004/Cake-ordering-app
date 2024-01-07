@@ -1,12 +1,19 @@
+import 'package:final_main_project/controller/homescreencontroller/homescreencontroller.dart';
 import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/view/homescreen/widgetcard/tapdetailscreencard.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Widgetcard extends StatelessWidget {
+class Widgetcard extends StatefulWidget {
   const Widgetcard({super.key});
 
+  @override
+  State<Widgetcard> createState() => _WidgetcardState();
+}
+
+class _WidgetcardState extends State<Widgetcard> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -18,7 +25,7 @@ class Widgetcard extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
-            mainAxisExtent: 250),
+            mainAxisExtent: 280),
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
@@ -42,39 +49,71 @@ class Widgetcard extends StatelessWidget {
                 ],
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 150,
-                    width: 200,
-                    child: Image.asset(
-                      Database.imagelist[index],
-                      fit: BoxFit.cover,
+                  Stack(children: [
+                    Positioned(
+                        child: Container(
+                      height: 180,
+                      width: double.infinity,
+                      child: Image.asset(
+                        Database.imagelist[index],
+                        fit: BoxFit.cover,
+                      ),
+                    )),
+                    Positioned(
+                      right: 5,
+                      child: CircleAvatar(
+                        backgroundColor: colorconstant.primarywhite,
+                        child: InkWell(
+                          onTap: () {
+                            Provider.of<homescreenController>(context,
+                                    listen: false)
+                                .toggleLikedState(index: index);
+                          },
+                          child: Consumer<homescreenController>(
+                            builder: (context, controller, child) =>
+                                controller.isLiked(index)
+                                    ? Icon(Icons.favorite)
+                                    : Icon(Icons.favorite_border),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ]),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Strawberry cake ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Icon(Icons.currency_rupee),
+                                Text(
+                                  "450",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Strawberry king cake",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.currency_rupee),
-                            Text(
-                              "450",
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
                 ],
               ),
             ),

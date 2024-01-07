@@ -39,20 +39,26 @@ class _BottomnavscreenState extends State<Bottomnavscreen> {
               backgroundColor: colorconstant.primarywhite,
               selectedIconTheme:
                   IconThemeData(color: colorconstant.primaryrose),
+              unselectedIconTheme:
+                  IconThemeData(color: colorconstant.primaryblack),
               items: [
                 BottomNavigationBarItem(
+                  backgroundColor: colorconstant.primaryrose,
                   icon: Icon(Icons.home),
                   label: "Home",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.add_box),
-                  label: "Order",
+                  backgroundColor: colorconstant.primaryrose,
+                  icon: Icon(Icons.message),
+                  label: "Chats",
                 ),
                 BottomNavigationBarItem(
+                  backgroundColor: colorconstant.primaryrose,
                   icon: Icon(Icons.favorite),
                   label: "Favorite",
                 ),
                 BottomNavigationBarItem(
+                  backgroundColor: colorconstant.primaryrose,
                   icon: Icon(Icons.person),
                   label: "Profile",
                 )

@@ -12,18 +12,38 @@ class Homescreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: colorconstant.primaryrose,
-          title: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Hi,Sarath",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              Container(
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: colorconstant.primarywhite,
+                      radius: 20,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hi,Sarath",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                        Text(
+                          "Find and get your best cake",
+                          style: TextStyle(fontSize: 15),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "Find and get your best cake",
-                style: TextStyle(fontSize: 15),
-              )
+              Icon(Icons.shopping_cart)
             ],
           ),
           bottom: TabBar(
