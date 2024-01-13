@@ -4,6 +4,7 @@ import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/view/homescreen/widgetcard/tapdetailscreencard.dart';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Widgetcard extends StatefulWidget {
@@ -93,7 +94,9 @@ class _WidgetcardState extends State<Widgetcard> {
                             Text(
                               "Strawberry cake ",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  fontFamily: GoogleFonts.aleo().fontFamily),
                             ),
                             SizedBox(
                               height: 10,

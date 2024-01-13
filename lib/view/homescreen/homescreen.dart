@@ -1,4 +1,5 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
+import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
 import 'package:final_main_project/view/homescreen/widgetcard/homescreenwidgetcard.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +20,7 @@ class Homescreen extends StatelessWidget {
                 child: Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor: colorconstant.primarywhite,
-                      radius: 20,
+                      child: Image.asset(imageconstant.profilephoto),
                     ),
                     SizedBox(
                       width: 10,
@@ -32,7 +32,7 @@ class Homescreen extends StatelessWidget {
                         Text(
                           "Hi,Sarath",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
+                              fontWeight: FontWeight.bold, fontSize: 17),
                         ),
                         Text(
                           "Find and get your best cake",
@@ -43,7 +43,6 @@ class Homescreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(Icons.shopping_cart)
             ],
           ),
           bottom: TabBar(

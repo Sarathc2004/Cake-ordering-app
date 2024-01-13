@@ -26,6 +26,7 @@ class Favouritescreen extends StatelessWidget {
                       context: context,
                       builder: (context) => tapdetailscreencard()),
                   child: Container(
+                    padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: colorconstant.primarywhite,
                       borderRadius: BorderRadius.circular(10),

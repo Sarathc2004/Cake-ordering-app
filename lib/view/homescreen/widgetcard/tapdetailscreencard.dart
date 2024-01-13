@@ -1,8 +1,11 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
+import 'package:final_main_project/view/chatscreen/chatpage.dart';
 import 'package:final_main_project/view/homescreen/widgetcard/cakemakersprofile.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
+
+import 'package:google_fonts/google_fonts.dart';
 
 class tapdetailscreencard extends StatelessWidget {
   const tapdetailscreencard({super.key});
@@ -30,7 +33,6 @@ class tapdetailscreencard extends StatelessWidget {
                     height: 700,
                     child: SingleChildScrollView(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           InkWell(
@@ -43,8 +45,8 @@ class tapdetailscreencard extends StatelessWidget {
                               child: Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: colorconstant.primaryrose,
-                                    radius: 20,
+                                    child:
+                                        Image.asset(imageconstant.profilephoto),
                                   ),
                                   SizedBox(
                                     width: 10,
@@ -103,13 +105,26 @@ class tapdetailscreencard extends StatelessWidget {
                           Text(
                             "Strawberry",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                fontFamily: GoogleFonts.aleo().fontFamily),
                           ),
                           SizedBox(
                             height: 10,
                           ),
                           Text(
-                              "Home » Recipes » Desserts » Cakes » Strawberry Cake Strawberry Cake Published: August 20, 2018 · Modified: May 26, 2022 by John KanellThis post may contain affiliate links. Please read our disclosure policy.You will fall in love with this fresh Strawberry Cake made with a homemade strawberry reduction. It's moist, tender, and the most beautiful shade of pink! This recipe combines layers of strawberry flavored cake with strawberry flavored cream cheese frosting, so you get fresh strawberry flavors with every bite.A strawberry cake on a cake stand with a slice cut and placed in front.44165SHARESSharePin it Reddit Jump to Recipe  Print Recipe This made from scratch with strawberry cake recipe is such a delightful and pretty cake. Packed with strawberry flavors and a gorgeous shade of pink, this cake is perfect for any occasion. No box mix or Jell-O in this cake! Made with real strawberries, this cake will steal the show with its light and tender crumb."),
+                            "Home » Recipes » Desserts » Cakes » Strawberry Cake "
+                            "Published: August 20, 2018 · Modified: May 26, 2022 by John Kanell "
+                            "This post may contain affiliate links. Please read our disclosure policy. "
+                            "You will fall in love with this fresh Strawberry Cake made with a homemade strawberry reduction. It's moist, tender, and the most beautiful shade of pink! This recipe combines layers of strawberry flavored cake with strawberry flavored cream cheese frosting, so you get fresh strawberry flavors with every bite. "
+                            "A strawberry cake on a cake stand with a slice cut and placed in front. "
+                            "44165 SHARES Share Pin it Reddit Jump to Recipe  Print Recipe "
+                            "This made-from-scratch strawberry cake recipe is such a delightful and pretty cake. Packed with strawberry flavors and a gorgeous shade of pink, this cake is perfect for any occasion. No box mix or Jell-O in this cake! Made with real strawberries, this cake will steal the show with its light and tender crumb.",
+                            style: TextStyle(
+                              fontFamily: GoogleFonts.aBeeZee().fontFamily,
+                              height: 1.5,
+                            ),
+                          ),
                           SizedBox(
                             height: 10,
                           ),
@@ -142,7 +157,13 @@ class tapdetailscreencard extends StatelessWidget {
                                 style: ButtonStyle(
                                     backgroundColor: MaterialStatePropertyAll(
                                         colorconstant.primaryrose)),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Chatpage(),
+                                      ));
+                                },
                                 child: Text("Message now")),
                           )
                         ],

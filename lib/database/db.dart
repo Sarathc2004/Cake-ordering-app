@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Database {
   static List<Map> splashlist = [
     {
@@ -33,5 +35,9 @@ class Database {
     "assets/images/splashcake2.webp",
     "assets/images/splashcake3.webp",
     "assets/images/cake.jpeg"
+  ];
+  static List<Map> profilelist = [
+    {"buttonname": "Order history", "icon": Icons.history},
+    {"buttonname": "Logout", "icon": Icons.logout}
   ];
 }

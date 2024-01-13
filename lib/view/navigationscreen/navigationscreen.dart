@@ -38,9 +38,9 @@ class _BottomnavscreenState extends State<Bottomnavscreen> {
               unselectedItemColor: colorconstant.primarygray,
               backgroundColor: colorconstant.primarywhite,
               selectedIconTheme:
-                  IconThemeData(color: colorconstant.primaryrose),
-              unselectedIconTheme:
                   IconThemeData(color: colorconstant.primaryblack),
+              unselectedIconTheme:
+                  IconThemeData(color: colorconstant.primarygray),
               items: [
                 BottomNavigationBarItem(
                   backgroundColor: colorconstant.primaryrose,
@@ -64,9 +64,9 @@ class _BottomnavscreenState extends State<Bottomnavscreen> {
                 )
               ],
               currentIndex: navbarcontroller.selectedindex,
-              onTap: (index) {
+              onTap: (value) {
                 Provider.of<usernavbarcontroller>(context, listen: false)
-                    .Onnavtap(index);
+                    .Onnavtap(value);
               },
             ),
           ),

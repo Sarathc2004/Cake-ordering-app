@@ -77,8 +77,7 @@ class Splashscreen extends StatelessWidget {
             SmoothPageIndicator(
               controller: controller,
               count: 3,
-              effect: ScrollingDotsEffect(
-                  activeDotColor: colorconstant.primaryrose),
+              effect: WormEffect(activeDotColor: colorconstant.primaryblack),
             ),
             SizedBox(height: 20.0),
           ],
