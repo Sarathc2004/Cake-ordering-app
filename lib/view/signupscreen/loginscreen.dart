@@ -3,11 +3,20 @@ import 'dart:math';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
 import 'package:final_main_project/view/navigationscreen/navigationscreen.dart';
+import 'package:final_main_project/view/signupscreen/signupscreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Loginscreen extends StatelessWidget {
+class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
 
+  @override
+  State<Loginscreen> createState() => _LoginscreenState();
+}
+
+class _LoginscreenState extends State<Loginscreen> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,6 +97,7 @@ class Loginscreen extends StatelessWidget {
                           ],
                         ),
                         child: TextField(
+                          controller: emailcontroller,
                           decoration: InputDecoration(
                             hintText: 'Enter your email',
                             suffixIcon: Icon(Icons.email),
@@ -122,8 +132,9 @@ class Loginscreen extends StatelessWidget {
                           ],
                         ),
                         child: TextField(
+                          controller: passwordcontroller,
                           decoration: InputDecoration(
-                            hintText: 'Enter your email',
+                            hintText: 'Enter your password',
                             suffixIcon: Icon(Icons.lock),
                             border: InputBorder.none,
                           ),
@@ -140,15 +151,41 @@ class Loginscreen extends StatelessWidget {
                                   backgroundColor: MaterialStatePropertyAll(
                                       colorconstant.primaryrose),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushAndRemoveUntil(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Bottomnavscreen(),
-                                      ),
-                                      (route) => false);
+                                onPressed: () async {
+                                  try {
+                                    final credential = await FirebaseAuth
+                                        .instance
+                                        .signInWithEmailAndPassword(
+                                      email: emailcontroller.text,
+                                      password: passwordcontroller.text,
+                                    );
+                                    if (credential.user?.uid != null) {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                Bottomnavscreen(),
+                                          ),
+                                          (route) => false);
+                                    }
+                                  } on FirebaseAuthException catch (e) {
+                                    if (e.code == 'weak-password') {
+                                      print(
+                                          'The password provided is too weak.');
+                                    } else if (e.code ==
+                                        'email-already-in-use') {
+                                      print(
+                                          'The account already exists for that email.');
+                                    }
+                                  } catch (e) {
+                                    print(e);
+                                  }
                                 },
-                                child: Text('Sign in'),
+                                child: Text(
+                                  'Sign in',
+                                  style: TextStyle(
+                                      color: colorconstant.primarywhite),
+                                ),
                               ),
                               SizedBox(
                                 height: 20,
@@ -192,6 +229,26 @@ class Loginscreen extends StatelessWidget {
                                       ),
                                       Text("SIGN IN WITH GOOGLE")
                                     ]),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                children: [
+                                  Text("Dont have an account?"),
+                                  InkWell(
+                                      onTap: () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                Signupscreen(),
+                                          )),
+                                      child: Text(
+                                        "Signup",
+                                        style: TextStyle(
+                                            color: colorconstant.primaryblue),
+                                      ))
+                                ],
                               )
                             ],
                           ),

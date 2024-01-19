@@ -49,7 +49,7 @@ class Splashscreen extends StatelessWidget {
                         Text(Database.splashlist[index]["firstline"]),
                         Text(Database.splashlist[index]["secondline"]),
                         SizedBox(
-                          height: 110,
+                          height: 100,
                         ),
                         if (index == 2)
                           ElevatedButton(
@@ -65,7 +65,11 @@ class Splashscreen extends StatelessWidget {
                                     builder: (context) => Logoscreen(),
                                   ));
                             },
-                            child: Text('Get Started'),
+                            child: Text(
+                              'Get Started',
+                              style:
+                                  TextStyle(color: colorconstant.primarywhite),
+                            ),
                           ),
                       ],
                     ),

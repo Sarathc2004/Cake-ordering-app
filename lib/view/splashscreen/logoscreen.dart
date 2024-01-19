@@ -27,7 +27,10 @@ class Logoscreen extends StatelessWidget {
                     builder: (context) => Signupscreen(),
                   ));
             },
-            child: Text("Users"),
+            child: Text(
+              "Users",
+              style: TextStyle(color: colorconstant.primarywhite),
+            ),
           ),
           Text("Or"),
           ElevatedButton(
@@ -35,7 +38,10 @@ class Logoscreen extends StatelessWidget {
                   backgroundColor:
                       MaterialStatePropertyAll(colorconstant.primaryrose)),
               onPressed: () {},
-              child: Text("Cakemakers"))
+              child: Text(
+                "Cakemakers",
+                style: TextStyle(color: colorconstant.primarywhite),
+              ))
         ],
       ),
     );

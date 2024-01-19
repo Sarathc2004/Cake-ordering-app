@@ -38,6 +38,9 @@ class Database {
   ];
   static List<Map> profilelist = [
     {"buttonname": "Order history", "icon": Icons.history},
-    {"buttonname": "Logout", "icon": Icons.logout}
+    {"buttonname": "Notifications", "icon": Icons.notifications},
+    {"buttonname": "Settings", "icon": Icons.settings},
+    {"buttonname": "Help", "icon": Icons.help_outline},
+    {"buttonname": "Logout", "icon": Icons.logout},
   ];
 }

@@ -48,7 +48,7 @@ class Homescreen extends StatelessWidget {
           bottom: TabBar(
             indicator: ShapeDecoration(
               color: colorconstant.primarywhite,
-              shape: RoundedRectangleBorder(
+              shape: ContinuousRectangleBorder(
                   borderRadius: BorderRadius.circular(50)),
             ),
             tabs: [

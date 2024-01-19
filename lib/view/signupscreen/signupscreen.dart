@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
 import 'package:final_main_project/view/signupscreen/loginscreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Signupscreen extends StatefulWidget {
@@ -13,6 +14,9 @@ class Signupscreen extends StatefulWidget {
 }
 
 class _SignupscreenState extends State<Signupscreen> {
+  TextEditingController usernamecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   @override
   @override
   Widget build(BuildContext context) {
@@ -95,6 +99,7 @@ class _SignupscreenState extends State<Signupscreen> {
                           ],
                         ),
                         child: TextField(
+                          controller: usernamecontroller,
                           decoration: InputDecoration(
                             hintText: 'Enter your username',
                             suffixIcon: Icon(Icons.person),
@@ -127,6 +132,7 @@ class _SignupscreenState extends State<Signupscreen> {
                           ],
                         ),
                         child: TextField(
+                          controller: emailcontroller,
                           decoration: InputDecoration(
                             hintText: 'Enter your email',
                             suffixIcon: Icon(Icons.email),
@@ -161,6 +167,7 @@ class _SignupscreenState extends State<Signupscreen> {
                           ],
                         ),
                         child: TextField(
+                          controller: passwordcontroller,
                           decoration: InputDecoration(
                             hintText: 'Enter your password',
                             suffixIcon: Icon(Icons.lock),
@@ -179,14 +186,44 @@ class _SignupscreenState extends State<Signupscreen> {
                                   backgroundColor: MaterialStatePropertyAll(
                                       colorconstant.primaryrose),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Loginscreen(),
-                                      ));
+                                onPressed: () async {
+                                  try {
+                                    final credential = await FirebaseAuth
+                                        .instance
+                                        .createUserWithEmailAndPassword(
+                                      email: emailcontroller.text,
+                                      password: passwordcontroller.text,
+                                    );
+                                    print(credential.user?.uid);
+                                    if (credential.user?.uid != null) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Loginscreen(),
+                                          ));
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content: Text("Signup failed")));
+                                    }
+                                  } on FirebaseAuthException catch (e) {
+                                    if (e.code == 'weak-password') {
+                                      print(
+                                          'The password provided is too weak.');
+                                    } else if (e.code ==
+                                        'email-already-in-use') {
+                                      print(
+                                          'The account already exists for that email.');
+                                    }
+                                  } catch (e) {
+                                    print(e);
+                                  }
                                 },
-                                child: Text('Sign up'),
+                                child: Text(
+                                  'Sign up',
+                                  style: TextStyle(
+                                      color: colorconstant.primarywhite),
+                                ),
                               ),
                               SizedBox(
                                 height: 20,
@@ -230,6 +267,26 @@ class _SignupscreenState extends State<Signupscreen> {
                                       ),
                                       Text("SIGN UP WITH GOOGLE")
                                     ]),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                children: [
+                                  Text("Already have an account?"),
+                                  InkWell(
+                                    onTap: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Loginscreen(),
+                                        )),
+                                    child: Text(
+                                      "Signin",
+                                      style: TextStyle(
+                                          color: colorconstant.primaryblue),
+                                    ),
+                                  )
+                                ],
                               )
                             ],
                           ),

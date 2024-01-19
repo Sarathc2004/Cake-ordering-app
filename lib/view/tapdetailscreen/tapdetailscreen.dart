@@ -1,7 +1,7 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
+import 'package:final_main_project/view/cakemakersprofile/cakemakersprofile.dart';
 import 'package:final_main_project/view/chatscreen/chatpage.dart';
-import 'package:final_main_project/view/homescreen/widgetcard/cakemakersprofile.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -145,7 +145,11 @@ class tapdetailscreencard extends StatelessWidget {
                                     backgroundColor: MaterialStatePropertyAll(
                                         colorconstant.primaryrose)),
                                 onPressed: () {},
-                                child: Text("Buy now")),
+                                child: Text(
+                                  "Buy now",
+                                  style: TextStyle(
+                                      color: colorconstant.primarywhite),
+                                )),
                           ),
                           SizedBox(
                             width: 10,
@@ -164,7 +168,9 @@ class tapdetailscreencard extends StatelessWidget {
                                         builder: (context) => Chatpage(),
                                       ));
                                 },
-                                child: Text("Message now")),
+                                child: Text("Message now",
+                                    style: TextStyle(
+                                        color: colorconstant.primarywhite))),
                           )
                         ],
                       ),

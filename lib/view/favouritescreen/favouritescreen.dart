@@ -1,6 +1,6 @@
 import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
-import 'package:final_main_project/view/homescreen/widgetcard/tapdetailscreencard.dart';
+import 'package:final_main_project/view/tapdetailscreen/tapdetailscreen.dart';
 import 'package:flutter/material.dart';
 
 class Favouritescreen extends StatelessWidget {

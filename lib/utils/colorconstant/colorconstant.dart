@@ -5,4 +5,5 @@ class colorconstant {
   static Color primarywhite = Color(0xffffffff);
   static Color primaryrose = Color(0xfffb607f);
   static Color primarygray = Color(0xff808080);
+  static Color primaryblue = Color(0xff0000ff);
 }
