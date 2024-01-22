@@ -1,6 +1,7 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/signupscreen/signupscreen.dart';
+import 'package:final_main_project/view/cakemakersnavscreen/cakemakernavscreen.dart';
+import 'package:final_main_project/view/usernavigationscreen/usenavigationscreen.dart';
 import 'package:flutter/material.dart';
 
 class Logoscreen extends StatelessWidget {
@@ -21,11 +22,12 @@ class Logoscreen extends StatelessWidget {
                 backgroundColor:
                     MaterialStatePropertyAll(colorconstant.primaryrose)),
             onPressed: () {
-              Navigator.push(
+              Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Signupscreen(),
-                  ));
+                    builder: (context) => userbottomnavscreen(),
+                  ),
+                  (route) => false);
             },
             child: Text(
               "Users",
@@ -37,7 +39,14 @@ class Logoscreen extends StatelessWidget {
               style: ButtonStyle(
                   backgroundColor:
                       MaterialStatePropertyAll(colorconstant.primaryrose)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => cakemakernavscreen(),
+                    ),
+                    (route) => false);
+              },
               child: Text(
                 "Cakemakers",
                 style: TextStyle(color: colorconstant.primarywhite),

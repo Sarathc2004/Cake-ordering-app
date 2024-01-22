@@ -3,14 +3,14 @@ import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Bottomnavscreen extends StatefulWidget {
-  const Bottomnavscreen({super.key});
+class userbottomnavscreen extends StatefulWidget {
+  const userbottomnavscreen({super.key});
 
   @override
-  State<Bottomnavscreen> createState() => _BottomnavscreenState();
+  State<userbottomnavscreen> createState() => _BottomnavscreenState();
 }
 
-class _BottomnavscreenState extends State<Bottomnavscreen> {
+class _BottomnavscreenState extends State<userbottomnavscreen> {
   usernavbarcontroller navbarcontroller = usernavbarcontroller();
 
   @override
@@ -34,11 +34,12 @@ class _BottomnavscreenState extends State<Bottomnavscreen> {
             borderRadius: BorderRadius.circular(20),
             child: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              selectedItemColor: colorconstant.primaryblack,
+              selectedItemColor: colorconstant.primaryrose,
               unselectedItemColor: colorconstant.primarygray,
+              showSelectedLabels: true,
               backgroundColor: colorconstant.primarywhite,
               selectedIconTheme:
-                  IconThemeData(color: colorconstant.primaryblack),
+                  IconThemeData(color: colorconstant.primaryrose),
               unselectedIconTheme:
                   IconThemeData(color: colorconstant.primarygray),
               items: [

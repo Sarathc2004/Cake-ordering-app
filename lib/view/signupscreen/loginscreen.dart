@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/navigationscreen/navigationscreen.dart';
 import 'package:final_main_project/view/signupscreen/signupscreen.dart';
+import 'package:final_main_project/view/splashscreen/logoscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -160,13 +160,11 @@ class _LoginscreenState extends State<Loginscreen> {
                                       password: passwordcontroller.text,
                                     );
                                     if (credential.user?.uid != null) {
-                                      Navigator.pushAndRemoveUntil(
+                                      Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                Bottomnavscreen(),
-                                          ),
-                                          (route) => false);
+                                            builder: (context) => Logoscreen(),
+                                          ));
                                     }
                                   } on FirebaseAuthException catch (e) {
                                     if (e.code == 'weak-password') {

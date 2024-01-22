@@ -1,5 +1,7 @@
 import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
+import 'package:final_main_project/view/signupscreen/loginscreen.dart';
+import 'package:final_main_project/view/signupscreen/signupscreen.dart';
 import 'package:final_main_project/view/splashscreen/logoscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -62,7 +64,7 @@ class Splashscreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Logoscreen(),
+                                    builder: (context) => Signupscreen(),
                                   ));
                             },
                             child: Text(

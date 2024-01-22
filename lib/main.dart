@@ -1,3 +1,4 @@
+import 'package:final_main_project/controller/cakemakernavcontroller/cakemakernavcontroller.dart';
 import 'package:final_main_project/controller/homescreencontroller/homescreencontroller.dart';
 import 'package:final_main_project/controller/profilescreencontroller/profilescreencontroller.dart';
 import 'package:final_main_project/controller/usernavbarcontroller.dart';
@@ -35,6 +36,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => profilescreencontroller(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => cakemakernavbarcontroller(),
         )
       ],
       child: MaterialApp(
