@@ -41,24 +41,14 @@ class _BottomnavscreenState extends State<cakemakernavscreen> {
           items: [
             BottomNavigationBarItem(
               backgroundColor: colorconstant.primaryrose,
-              icon: Icon(Icons.home),
-              label: "Home",
+              icon: Icon(Icons.shopify_rounded),
+              label: "order",
             ),
             BottomNavigationBarItem(
               backgroundColor: colorconstant.primaryrose,
               icon: Icon(Icons.message),
               label: "Chats",
             ),
-            BottomNavigationBarItem(
-              backgroundColor: colorconstant.primaryrose,
-              icon: Icon(Icons.notifications),
-              label: "Notification",
-            ),
-            BottomNavigationBarItem(
-              backgroundColor: colorconstant.primaryrose,
-              icon: Icon(Icons.shopify_rounded),
-              label: "Order",
-            )
           ],
           currentIndex: cakenavbarcontroller.selectedindex,
           onTap: (value) {

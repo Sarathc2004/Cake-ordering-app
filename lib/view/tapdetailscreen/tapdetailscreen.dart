@@ -80,7 +80,7 @@ class tapdetailscreencard extends StatelessWidget {
                                 height: 200,
                                 width: 300,
                                 child: Image.asset(
-                                  "assets/images/splashcake1.webp",
+                                  "assets/imagescake.jpeg",
                                   fit: BoxFit.cover,
                                 ),
                               ),
