@@ -1,5 +1,6 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
-import 'package:final_main_project/view/users/ordersscreen/widgetcard/orderscreencard.dart';
+import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
+import 'package:final_main_project/view/cakemakers/ordersscreen/widgetcard/orderscreencard.dart';
 import 'package:flutter/material.dart';
 
 class Ordersscreen extends StatelessWidget {
@@ -10,9 +11,17 @@ class Ordersscreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorconstant.primaryrose,
-        title: Text(
-          "Orders",
-          style: TextStyle(color: colorconstant.primarywhite),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Orders",
+              style: TextStyle(color: colorconstant.primarywhite),
+            ),
+            CircleAvatar(
+              child: Image.asset(imageconstant.profilephoto),
+            )
+          ],
         ),
       ),
       body: SingleChildScrollView(
