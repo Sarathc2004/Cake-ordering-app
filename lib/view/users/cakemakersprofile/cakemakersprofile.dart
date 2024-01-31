@@ -1,7 +1,7 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/homescreen/widgetcard/homescreenwidgetcard.dart';
-import 'package:final_main_project/view/homescreen/widgetcard/reviewpostscreen.dart';
+import 'package:final_main_project/view/users/cakemakersprofile/reviwpostscreen.dart';
+import 'package:final_main_project/view/users/homescreen/widgetcard/homescreenwidget.dart';
 import 'package:flutter/material.dart';
 
 class Cakemakersprofile extends StatelessWidget {

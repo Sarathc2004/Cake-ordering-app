@@ -1,6 +1,6 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/chatscreen/chatpage.dart';
+import 'package:final_main_project/view/users/chatscreen/chatpage.dart';
 import 'package:flutter/material.dart';
 
 class Chatscreen extends StatelessWidget {

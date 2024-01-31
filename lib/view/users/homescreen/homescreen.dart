@@ -1,6 +1,6 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/homescreen/widgetcard/homescreenwidgetcard.dart';
+import 'package:final_main_project/view/users/homescreen/widgetcard/homescreenwidget.dart';
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {

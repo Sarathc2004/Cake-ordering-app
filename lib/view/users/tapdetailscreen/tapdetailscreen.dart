@@ -1,7 +1,8 @@
+import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/cakemakersprofile/cakemakersprofile.dart';
-import 'package:final_main_project/view/chatscreen/chatpage.dart';
+import 'package:final_main_project/view/users/cakemakersprofile/cakemakersprofile.dart';
+import 'package:final_main_project/view/users/chatscreen/chatpage.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -80,7 +81,7 @@ class tapdetailscreencard extends StatelessWidget {
                                 height: 200,
                                 width: 300,
                                 child: Image.asset(
-                                  "assets/imagescake.jpeg",
+                                  imageconstant.splashlogo,
                                   fit: BoxFit.cover,
                                 ),
                               ),

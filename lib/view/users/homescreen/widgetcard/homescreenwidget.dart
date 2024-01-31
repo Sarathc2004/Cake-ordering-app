@@ -1,7 +1,7 @@
 import 'package:final_main_project/controller/homescreencontroller/homescreencontroller.dart';
 import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
-import 'package:final_main_project/view/tapdetailscreen/tapdetailscreen.dart';
+import 'package:final_main_project/view/users/tapdetailscreen/tapdetailscreen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

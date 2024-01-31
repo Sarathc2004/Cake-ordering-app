@@ -1,5 +1,6 @@
 import 'package:final_main_project/controller/cakemakernavcontroller/cakemakernavcontroller.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
+import 'package:final_main_project/view/cakemakers/dessertaddscreen/desertaddscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +27,14 @@ class _BottomnavscreenState extends State<cakemakernavscreen> {
             ]),
             child: FloatingActionButton(
               backgroundColor: colorconstant.primaryrose,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Dessertaddscreen(),
+                    ),
+                    (route) => false);
+              },
               child: Icon(Icons.add),
             )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -1,7 +1,6 @@
+import 'package:final_main_project/view/users/ordersscreen/widgetcard/orderdetailscard.dart';
 import 'package:flutter/material.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
-import 'package:final_main_project/view/chatscreen/chatpage.dart';
-import 'package:final_main_project/view/orders_screen/widgetcard/orderdetailcard.dart';
 
 class Orderdetailsscreen extends StatelessWidget {
   const Orderdetailsscreen({super.key});

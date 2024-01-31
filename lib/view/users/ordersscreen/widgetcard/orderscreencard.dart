@@ -1,5 +1,5 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
-import 'package:final_main_project/view/orders_screen/orderdetailsscreen.dart';
+import 'package:final_main_project/view/users/ordersscreen/ordersdetailsscreen.dart';
 import 'package:flutter/material.dart';
 
 class orderscreencard extends StatelessWidget {

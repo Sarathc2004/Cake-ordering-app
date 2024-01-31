@@ -1,7 +1,7 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
-import 'package:final_main_project/view/cakemakersnavscreen/cakemakernavscreen.dart';
-import 'package:final_main_project/view/usernavigationscreen/usenavigationscreen.dart';
+import 'package:final_main_project/view/cakemakers/cakemakernavscreen/cakemakernavscreen.dart';
+import 'package:final_main_project/view/users/usernavigationscreen/usernavigationscreen.dart';
 import 'package:flutter/material.dart';
 
 class Logoscreen extends StatelessWidget {

@@ -2,7 +2,6 @@ import 'package:final_main_project/controller/cakemakernavcontroller/cakemakerna
 import 'package:final_main_project/controller/homescreencontroller/homescreencontroller.dart';
 import 'package:final_main_project/controller/profilescreencontroller/profilescreencontroller.dart';
 import 'package:final_main_project/controller/usernavbarcontroller.dart';
-import 'package:final_main_project/view/homescreen/homescreen.dart';
 import 'package:final_main_project/view/splashscreen/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 

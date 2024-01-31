@@ -43,4 +43,10 @@ class Database {
     {"buttonname": "Help", "icon": Icons.help_outline},
     {"buttonname": "Logout", "icon": Icons.logout},
   ];
+  static List<Map> dessertaddlist = [
+    {"image": "assets/images/cakephoto.jpg", "name": "Cakes"},
+    {"image": "assets/images/donutphoto.jpg", "name": "Donuts"},
+    {"image": "assets/images/cupcakesphoto.jpg", "name": "Cup cakes"},
+    {"image": "assets/images/cookiesphoto.jpg", "name": "Cookies"}
+  ];
 }
