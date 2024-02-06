@@ -2,6 +2,7 @@ import 'package:final_main_project/controller/profilescreencontroller/profilescr
 import 'package:final_main_project/database/db.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
+import 'package:final_main_project/view/signupscreen/signupscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
@@ -93,6 +94,13 @@ class Profilescreen extends StatelessWidget {
                                   Provider.of<profilescreencontroller>(context,
                                           listen: false)
                                       .logoutbutton();
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Signupscreen(),
+                                      ),
+                                      (route) => false);
+
                                   ();
                                   break;
 

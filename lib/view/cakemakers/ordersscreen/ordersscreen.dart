@@ -1,6 +1,7 @@
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
 import 'package:final_main_project/view/cakemakers/ordersscreen/widgetcard/orderscreencard.dart';
+import 'package:final_main_project/view/users/cakemakersprofile/cakemakersprofile.dart';
 import 'package:flutter/material.dart';
 
 class Ordersscreen extends StatelessWidget {
@@ -18,8 +19,15 @@ class Ordersscreen extends StatelessWidget {
               "Orders",
               style: TextStyle(color: colorconstant.primarywhite),
             ),
-            CircleAvatar(
-              child: Image.asset(imageconstant.profilephoto),
+            InkWell(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Cakemakersprofile(),
+                  )),
+              child: CircleAvatar(
+                child: Image.asset(imageconstant.profilephoto),
+              ),
             )
           ],
         ),

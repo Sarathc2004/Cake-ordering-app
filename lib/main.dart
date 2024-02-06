@@ -1,8 +1,10 @@
 import 'package:final_main_project/controller/cakemakernavcontroller/cakemakernavcontroller.dart';
 import 'package:final_main_project/controller/homescreencontroller/homescreencontroller.dart';
+import 'package:final_main_project/controller/profiledatacontroller/profiledatacontroller.dart';
 import 'package:final_main_project/controller/profilescreencontroller/profilescreencontroller.dart';
+import 'package:final_main_project/controller/splashscreencontroller/splashscreencontroller.dart';
 import 'package:final_main_project/controller/usernavbarcontroller.dart';
-import 'package:final_main_project/view/splashscreen/splashscreen.dart';
+import 'package:final_main_project/view/splashscreen/splashlogoscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
@@ -31,6 +33,12 @@ class MyApp extends StatelessWidget {
           create: (context) => usernavbarcontroller(),
         ),
         ChangeNotifierProvider(
+          create: (context) => Profiledatacontroller(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Splashscreencontroller(),
+        ),
+        ChangeNotifierProvider(
           create: (context) => homescreenController(),
         ),
         ChangeNotifierProvider(
@@ -40,10 +48,14 @@ class MyApp extends StatelessWidget {
           create: (context) => cakemakernavbarcontroller(),
         )
       ],
+      // child: StreamBuilder(
+      // builder: builder,
+      // stream: FirebaseAuth.instance.authStateChanges(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Splashscreen(),
+        home: Splashlogoscreen(),
       ),
+      // ),
     );
   }
 }

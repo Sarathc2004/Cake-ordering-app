@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:final_main_project/controller/signupcontroller/signupcontroller.dart';
 import 'package:final_main_project/utils/colorconstant/colorconstant.dart';
 import 'package:final_main_project/utils/imageconstant/imageconstant.dart';
 import 'package:final_main_project/view/signupscreen/loginscreen.dart';
@@ -14,12 +15,54 @@ class Signupscreen extends StatefulWidget {
 }
 
 class _SignupscreenState extends State<Signupscreen> {
+  Authmethods authmethods = Authmethods();
   TextEditingController usernamecontroller = TextEditingController();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    usernamecontroller.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Future<void> registerUser() async {
+      try {
+        String resp = await Authmethods().registerUser(
+          username: usernamecontroller.text,
+          email: emailcontroller.text,
+          password: passwordcontroller.text,
+        );
+
+        if (resp == "success") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Loginscreen(),
+            ),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Signup failed")),
+          );
+        }
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          print('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          print('The account already exists for that email.');
+        } else {
+          print(e.message);
+        }
+      } catch (e) {
+        print(e.toString());
+      }
+    }
+
     return Scaffold(
       backgroundColor: colorconstant.primaryrose,
       body: SingleChildScrollView(
@@ -183,41 +226,53 @@ class _SignupscreenState extends State<Signupscreen> {
                             children: [
                               ElevatedButton(
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStatePropertyAll(
+                                  backgroundColor: MaterialStateProperty.all(
                                       colorconstant.primaryrose),
                                 ),
                                 onPressed: () async {
-                                  try {
-                                    final credential = await FirebaseAuth
-                                        .instance
-                                        .createUserWithEmailAndPassword(
-                                      email: emailcontroller.text,
-                                      password: passwordcontroller.text,
-                                    );
-                                    print(credential.user?.uid);
-                                    if (credential.user?.uid != null) {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Loginscreen(),
-                                          ));
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(SnackBar(
-                                              content: Text("Signup failed")));
-                                    }
-                                  } on FirebaseAuthException catch (e) {
-                                    if (e.code == 'weak-password') {
-                                      print(
-                                          'The password provided is too weak.');
-                                    } else if (e.code ==
-                                        'email-already-in-use') {
-                                      print(
-                                          'The account already exists for that email.');
-                                    }
-                                  } catch (e) {
-                                    print(e);
-                                  }
+                                  await registerUser();
+
+                                  // try {
+                                  //   final credential = await FirebaseAuth
+                                  //       .instance
+                                  //       .createUserWithEmailAndPassword(
+                                  //     email: emailcontroller.text,
+                                  //     password: passwordcontroller.text,
+                                  //   );
+                                  //   print(credential.user?.uid);
+                                  //   if (credential.user?.uid != null) {
+                                  //     // Add user details to Firestore here
+                                  //     await signupcontroller.addUserdetails(
+                                  //         username:
+                                  //             usernamecontroller.text.trim(),
+                                  //         email: emailcontroller.text.trim());
+
+                                  //     // Navigate to the Login screen
+                                  //     Navigator.push(
+                                  //       context,
+                                  //       MaterialPageRoute(
+                                  //         builder: (context) => Loginscreen(),
+                                  //       ),
+                                  //     );
+                                  //   } else {
+                                  //     ScaffoldMessenger.of(context)
+                                  //         .showSnackBar(
+                                  //       SnackBar(
+                                  //           content: Text("Signup failed")),
+                                  //     );
+                                  //   }
+                                  // } on FirebaseAuthException catch (e) {
+                                  //   if (e.code == 'weak-password') {
+                                  //     print(
+                                  //         'The password provided is too weak.');
+                                  //   } else if (e.code ==
+                                  //       'email-already-in-use') {
+                                  //     print(
+                                  //         'The account already exists for that email.');
+                                  //   }
+                                  // } catch (e) {
+                                  //   print(e);
+                                  // }
                                 },
                                 child: Text(
                                   'Sign up',
